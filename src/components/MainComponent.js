@@ -11,6 +11,7 @@ import { postComment, fetchDishes, fetchComments, fetchPromos } from '../redux/A
 import {Route, Switch , Redirect, withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
 import { actions } from 'react-redux-form';
+import {TransitionGroup, CSSTransition} from 'react-transition-group';
 
 const mapStateToProps = state => {
   return {
@@ -79,6 +80,8 @@ componentDidMount() {
     return (
       <div className="App">
         <Header />
+        <TransitionGroup>
+          <CSSTransition key={this.props.location.key} classNames="page" timeout={300}>
         <Switch>
           <Route path = "/home" component = {HomePage} /> 
           <Route exact path="/menu" component = {() => <Menu dishes={this.props.dishes}/>} />
@@ -87,6 +90,8 @@ componentDidMount() {
           <Route exact path='/aboutus' component={AboutUs} />
           <Redirect to = '/home'/>
         </Switch> 
+        </CSSTransition>
+        </TransitionGroup>
         <Footer />
       </div>
     );
