@@ -14,8 +14,8 @@ function About(props) {
 
     function RenderLeader({leader}) {
         return (
-            <Fade in>
-            <div key={leader.id} className="col-12 mt-5">
+            <Fade in key={leader.id}>
+            <div className="col-12 mt-5">
                 <Media tag="li">
                     <Media left middle>
                         <Media object src={baseUrl + leader.image} alt={leader.name}/>
@@ -26,7 +26,7 @@ function About(props) {
                         <p>{leader.description}</p>
                     </Media>
                 </Media>
-            </div>
+                </div>
             </Fade>
         );
     }
@@ -53,16 +53,16 @@ function About(props) {
                 </div>
             );
         }
-        else if (props.leader != null ) {
+        else if (props.leaders != null ) {
             return (
             <div className="container">
                     <div className="row"> 
                         <div className="col-12">
-                        <Stagger in>
                             <Media list>
+                            <Stagger in>
                                 {leaders}
+                            </Stagger>
                             </Media>
-                        </Stagger>
                         </div>
                     </div> 
                 </div> 
