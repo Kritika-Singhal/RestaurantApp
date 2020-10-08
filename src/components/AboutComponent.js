@@ -14,8 +14,8 @@ function About(props) {
 
     function RenderLeader({leader}) {
         return (
-            <div key={leader.id} className="col-12 mt-5">
             <Fade in>
+            <div key={leader.id} className="col-12 mt-5">
                 <Media tag="li">
                     <Media left middle>
                         <Media object src={baseUrl + leader.image} alt={leader.name}/>
@@ -26,8 +26,8 @@ function About(props) {
                         <p>{leader.description}</p>
                     </Media>
                 </Media>
-            </Fade>
             </div>
+            </Fade>
         );
     }
 
